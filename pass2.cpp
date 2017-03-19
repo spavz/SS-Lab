@@ -72,6 +72,7 @@ int main() {
 	 	 		adj(object,4) << Symtab[x2] << endl;
 	 	 	}
 	 	}
+
 	locctr+=t;
 	code >> x0 >> x1 >> x2;
 	}
