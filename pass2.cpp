@@ -49,9 +49,9 @@ int main() {
 		int t;
 
 	 	if(x1 == "RESW")
-	  		t = 3 * stoi(x2,nullptr,16);
+	  		t = 3 * stoi(x2);
 	  	else if(x1 == "RESB")
-	  		t = stoi(x2,nullptr,16);
+	  		t = stoi(x2);
 	  	else if(x1 == "BYTE")
 	  		t = x2.length()/2;
 	  	else
@@ -69,14 +69,21 @@ int main() {
 	 	 	else
 	 	 	{
 	 	 		adj(object,2) << Optab[x1];
-	 	 		adj(object,4) << Symtab[x2] << endl;
-	 	 	}
+	 	 		if(x2.substr(x2.length()-1)=="X")
+	 	 			object << Symtab[x2.substr(0,x2.length()-2)]+0x8000 <<endl;
+	 	 		else if(x2=="-")
+	 	 			adj(object,4) << 0 << endl;
+	 	 		else
+	 	 			adj(object,4) << Symtab[x2] << endl;
+
+			}
 	 	}
 
 	locctr+=t;
 	code >> x0 >> x1 >> x2;
 	}
 
+	object << "E^" << adj << start_address << "^"<<endl;
 
   return 0;
 }

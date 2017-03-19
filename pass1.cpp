@@ -28,9 +28,9 @@ int main() {
   		Symtab[x0]=locctr;
 
   	if(x1 == "RESW")
-  		locctr+= 3 * stoi(x2,nullptr,16);
+  		locctr+= 3 * stoi(x2);
   	else if(x1 == "RESB")
-  		locctr+= stoi(x2,nullptr,16);
+  		locctr+= stoi(x2);
   	else if(x1 == "BYTE")
   		locctr+= x2.length()/2;
   	else
@@ -48,7 +48,6 @@ int main() {
   	cout << x.first <<" "<< x.second<<endl;
   	SYMTAB << hex << x.first <<" "<< x.second<<endl;
   }
-
 
   return 0;
 }
