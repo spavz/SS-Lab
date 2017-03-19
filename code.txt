@@ -1,0 +1,7 @@
+Copy START 1000
+-	 LDA Alpha
+-	 STA Beta
+Alpha RESW 1
+Beta RESW 1
+-	 END 
+
