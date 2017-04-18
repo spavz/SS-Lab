@@ -11,7 +11,7 @@
 %%
 
 "(" { stack++; }
-")" { stack--; }
+")" { if(stack<0) {valid = false;} {stack--;}}
 [a-zA-Z0-9]+ {operands.push_back(string(yytext));}
 [+\-*/] {operators += string(yytext);}
 [. \n] ;
@@ -23,7 +23,13 @@ int main(int argc, char* argv[])
 	yylex();
 
 	if(valid && (operands.size()-operators.size())==1 && !stack)
-		cout<<"Valid"<<endl;
+	{
+		cout<<"Valid\n";
+		cout<<"Operands: ";
+		for(auto &x: operands)
+			cout<<x<<" ";
+		cout<<"\nOperators: "<<operators<<endl;
+	}
 	else
 		cout<<"Invalid\n";
 	return 0;
