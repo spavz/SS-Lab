@@ -1,0 +1,7 @@
+Endfil Eof
+STA Buffer
+LDA 3
+STA Eof
+JSUB Wrrec
+LDL Retadr
+MEND

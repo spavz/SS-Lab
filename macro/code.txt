@@ -1,0 +1,27 @@
+Copy START 1000
+First STL Retadr
+Cloop JSUB Rdrec
+-	LDA Length
+- 	COMP 0
+- 	JEQ Endfil
+-	JSUB Wrrec
+-	J Cloop
+
+Endfil MACRO Eof
+-	STA Buffer
+-	LDA 3
+-	STA Eof
+Deep MACRO lol
+-	STA lol
+-	MEND -
+-	JSUB Wrrec
+-	LDL Retadr
+-	MEND -
+Eof BYTE 454647
+Three WORD 3
+Zero WORD 0
+-	Endfil Yyoyo
+Retadr RESW 1
+-	Deep lmao
+Length RESW 1
+-	END
